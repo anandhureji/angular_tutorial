@@ -11,11 +11,22 @@ export class AppointmentListComponent {
   newAppointmentTitle : string = "";
   newAppointmentDate : Date = new Date();
 
-  appointment : Appointment[] = []
+  appointments : Appointment[] = []
 
   addAppointment(){
-    console.log("button triggered")
-    alert(this.newAppointmentDate+" "+this.newAppointmentTitle)
+    if(this.newAppointmentTitle.trim().length && this.newAppointmentDate){
+      let newAppointmentDate : Appointment = {
+        id:Date.now(),
+        title:this.newAppointmentTitle,
+        date:this.newAppointmentDate
+      }
+
+      this.appointments.push(newAppointmentDate)
+
+      this.newAppointmentDate= new Date();
+      this.newAppointmentTitle = "";
+    }
+
   }
 
 }
