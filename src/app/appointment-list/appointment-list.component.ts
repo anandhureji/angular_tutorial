@@ -8,10 +8,14 @@ import { Appointment } from '../models/appointment';
 })
 export class AppointmentListComponent {
 
-  appointment : Appointment = {
-    id: 1,
-    title: "Consult the doctor",
-    date: new Date("2023-07-12")
+  newAppointmentTitle : string = "";
+  newAppointmentDate : Date = new Date();
+
+  appointment : Appointment[] = []
+
+  addAppointment(){
+    console.log("button triggered")
+    alert(this.newAppointmentDate+" "+this.newAppointmentTitle)
   }
 
 }
